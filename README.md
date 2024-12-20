@@ -1,1 +1,1 @@
-# Progetto_Galo_Di_Natale
+Generatore e verifica delle password, usando le classi python
