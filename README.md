@@ -83,7 +83,7 @@ Prima di tutto, copia l'URL del repository. Puoi trovare l'URL nella parte super
 Poi, esegui il seguente comando nel terminale o nel prompt dei comandi (assicurati di avere **git** installato):
 
 ```bash
-git clone https://github.com/tuo-username/tuo-repository.git
+git clone https://github.com/KamilIbragimov/Progetto_Galo_Di_Natale.git
 ```
 
 
