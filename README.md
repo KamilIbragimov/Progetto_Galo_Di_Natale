@@ -71,10 +71,10 @@ classDiagram
 ```
 ## Installazione 🔧
 
-Segui questi passaggi per installare il repository le dipendenze e configurare l'ambiente di sviluppo. Puoi farlo facilmente creando un ambiente virtuale per mantenere tutto separato e gestito correttamente.
+Segui questi passaggi per installare il repository le dipendenze e configurare l'ambiente di sviluppo integrato(IDE). Puoi farlo facilmente creando un ambiente virtuale per mantenere tutto separato e gestito correttamente.
 ## Clonare il Repository 🚀
 
-Per iniziare a lavorare con questo progetto, puoi clonare il repository sul tuo computer. Segui questi semplici passaggi:
+Per iniziare a lavorare con questo progetto, puoi clonare il repository nel tuo IDE, che di solito è vscode e Segui questi semplici passaggi:
 
 ### 1. Clonare il Repository
 
