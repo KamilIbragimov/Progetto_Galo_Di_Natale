@@ -1,1 +1,8 @@
-
+random
+string
+requests
+re
+email_validator
+EmailNotValidError
+termcolor
+pytest
