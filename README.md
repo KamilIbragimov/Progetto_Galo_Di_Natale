@@ -76,10 +76,10 @@ classDiagram
 ```
 ## Installazione 🔧
 
-Segui questi passaggi per installare il repository le dipendenze e configurare l'ambiente di sviluppo. Puoi farlo facilmente creando un ambiente virtuale per mantenere tutto separato e gestito correttamente.
+Segui questi passaggi per installare il repository le dipendenze e configurare l'ambiente di sviluppo integrato(IDE). Puoi farlo facilmente creando un ambiente virtuale per mantenere tutto separato e gestito correttamente.
 ## Clonare il Repository 🚀
 
-Per iniziare a lavorare con questo progetto, puoi clonare il repository sul tuo computer. Segui questi semplici passaggi:
+Per iniziare a lavorare con questo progetto, puoi clonare il repository nel tuo IDE, che di solito è vscode e Segui questi semplici passaggi:
 
 ### 1. Clonare il Repository
 
@@ -88,7 +88,7 @@ Prima di tutto, copia l'URL del repository. Puoi trovare l'URL nella parte super
 Poi, esegui il seguente comando nel terminale o nel prompt dei comandi (assicurati di avere **git** installato):
 
 ```bash
-git clone https://github.com/tuo-username/tuo-repository.git
+git clone https://github.com/KamilIbragimov/Progetto_Galo_Di_Natale.git
 ```
 
 
