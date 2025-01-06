@@ -33,41 +33,46 @@ Con questo programma, creare credenziali sicure non è mai stato così facile! �
 ##      Grafico      Mermaid
 ```mermaid
                                 
-
 classDiagram
+    direction RL
+
     class Convalida_Email {
-        +String valida()
+        +valida() string
     }
 
     class Convalida_Sito_Web {
-        +String valida()
+        +valida() string
     }
 
     class Utente {
-        +String email
-        +String password
-        +String sito_web
-        +String __str__()
+        -_email: string
+        -_password: string
+        -_sito_web: string
+        +email: string
+        +password: string
+        +sito_web: string
+        +__str__() string
     }
 
     class Generatore_Password {
-        +String genera(int lunghezza)
+        +valida() int
+        +genera(lunghezza: int) string
     }
 
     class Credenziali_Utente {
-        +Utente utente
-        +Generatore_Password generatore_password
-        +Convalida_Email convalida_email
-        +Convalida_Sito_Web convalida_sito_web
-        +void crea_credenziali_utente()
-        +void visualizza_credenziali()
+        -utente: Utente
+        -generatore_password: Generatore_Password
+        -convalida_email: Convalida_Email
+        -convalida_sito_web: Convalida_Sito_Web
+        +crea_credenziali_utente()
+        +visualizza_credenziali()
     }
-
+    Convalida_Email <|-- Credenziali_Utente : usa
+    Convalida_Sito_Web <|-- Credenziali_Utente : usa
+    Generatore_Password <|-- Credenziali_Utente : usa
+    Utente <|-- Credenziali_Utente : usa
     
-    Credenziali_Utente "1" --> "1" Utente : crea
-    Credenziali_Utente "1" --> "1" Generatore_Password : utilizza
-    Credenziali_Utente "1" -- "1" Convalida_Email : utilizza
-    Credenziali_Utente "1" -- "1" Convalida_Sito_Web : utilizza
+
 ```
 ## Installazione 🔧
 

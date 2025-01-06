@@ -88,19 +88,24 @@ class Utente:
         """Restituisce una rappresentazione stringa delle credenziali dell'utente."""
         return f"Email: {self.email}\nPassword: {self.password}\nSito Web: {self.sito_web}"
 
-
-# Classe per generare la password
 class Generatore_Password:
     """Classe per generare una password casuale."""
+    def valida(self) -> int:
+        """Chiede la lunghezza della password e la valida."""
+        while True:
+            try:
+                lunghezza = int(input("Inserisci la lunghezza desiderata per la password (minimo 8, massimo 20): "))
+                if lunghezza < 8 or lunghezza > 20:
+                    print("Errore: La lunghezza della password deve essere tra 8 e 20 caratteri.\n")
+                    continue
+                return lunghezza
+            except ValueError:
+                print("Errore: Inserisci un numero intero valido.\n")
 
     @staticmethod
     def genera(lunghezza: int) -> str:
         """Genera una password casuale in base alla lunghezza specificata."""
         try:
-            if lunghezza < 8 or lunghezza > 20:
-                print("Errore: La lunghezza della password deve essere tra 8 e 20 caratteri.\n") 
-                return None
-
             # Caratteri disponibili per la password
             caratteri = string.ascii_letters + string.digits + string.punctuation
 
@@ -121,11 +126,9 @@ class Generatore_Password:
             print("Errore: Inserisci un valore intero positivo per la lunghezza della password.\n")  
             return None
 
-
 # Classe principale per gestire la creazione delle credenziali utente
 class Credenziali_Utente:
     """Classe principale per gestire la creazione delle credenziali utente."""
-
     def __init__(self):
         """Inizializza il programma, chiedendo all'utente email, password e sito web."""
         self.utente = Utente()  # Oggetto Utente
@@ -135,24 +138,15 @@ class Credenziali_Utente:
 
     def crea_credenziali_utente(self):
         """Crea le credenziali dell'utente."""
-        while True:
-            try:
-                lunghezza = int(input("Inserisci la lunghezza desiderata per la password (minimo 8, massimo 20): "))
-                if lunghezza < 8 or lunghezza > 20:
-                    print("Errore: La lunghezza della password deve essere tra 8 e 20 caratteri.\n")  
-                    continue
-                self.utente.password = self.generatore_password.genera(lunghezza)
-                if self.utente.password:
-                    break
-            except ValueError:
-                print("Errore: Inserisci un valore intero positivo per la lunghezza della password.\n")  
-
         # Chiedi l'email dell'utente
         self.utente.email = self.convalida_email.valida()
 
         # Chiedi il sito web
         self.utente.sito_web = self.convalida_sito_web.valida()
 
+        # Chiedi la lunghezza della password e genera la password
+        lunghezza = self.generatore_password.valida()  
+        self.utente.password = self.generatore_password.genera(lunghezza)  
     def visualizza_credenziali(self):
         """Visualizza le credenziali finali."""
         print("\n" * 80)
@@ -164,9 +158,7 @@ class Credenziali_Utente:
         print(colored(f"Sito Web: {self.utente.sito_web}", 'blue'))
         print("\n" * 1)
 
-
 if __name__ == "__main__":
     credenziali_utente = Credenziali_Utente()
     credenziali_utente.crea_credenziali_utente()
     credenziali_utente.visualizza_credenziali()
-
