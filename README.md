@@ -31,46 +31,47 @@ Con questo programma, creare credenziali sicure non è mai stato così facile! �
 ---
 
 ##      Grafico      Mermaid
-```mermaid
-                                
+```mermaid           
 classDiagram
     direction RL
 
-    class Convalida_Email {
-        +valida() string
+    class Email {
+        +valida() str
     }
 
-    class Convalida_Sito_Web {
-        +valida() string
+    class Sito_Web {
+        +valida() str
     }
 
     class Utente {
-        -_email: string
-        -_password: string
-        -_sito_web: string
-        +email: string
-        +password: string
-        +sito_web: string
-        +__str__() string
+        +None email
+        +None password
+        +None sito_web
+        +__str__(self)
     }
 
-    class Generatore_Password {
+    class Password {
         +valida() int
-        +genera(lunghezza: int) string
+        +genera(lunghezza: int) str
     }
 
     class Credenziali_Utente {
-        -utente: Utente
-        -generatore_password: Generatore_Password
-        -convalida_email: Convalida_Email
-        -convalida_sito_web: Convalida_Sito_Web
+        
         +crea_credenziali_utente()
         +visualizza_credenziali()
     }
-    Convalida_Email <|-- Credenziali_Utente : usa
-    Convalida_Sito_Web <|-- Credenziali_Utente : usa
-    Generatore_Password <|-- Credenziali_Utente : usa
-    Utente <|-- Credenziali_Utente : usa
+    
+    %% Creazione degli oggetti all'interno di Credenziali_Utente
+    Credenziali_Utente : +Utente
+    Credenziali_Utente : +Password
+    Credenziali_Utente : +Email
+    Credenziali_Utente : +Sito_Web
+
+    %% Relazioni tra le classi e gli oggetti
+    Credenziali_Utente o-- Utente : prende Utente
+    Credenziali_Utente o-- Password : prende Password
+    Credenziali_Utente o-- Email : prende Email
+    Credenziali_Utente o-- Sito_Web : prende Sito
     
 
 ```

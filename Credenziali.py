@@ -7,7 +7,7 @@ from termcolor import colored
 
 
 # Classe per la convalida dell'email
-class Convalida_Email():
+class Email():
     """Classe per convalidare un indirizzo email."""
 
     def valida(self) -> str:
@@ -24,10 +24,10 @@ class Convalida_Email():
 
 
 # Classe per la convalida del sito web
-class Convalida_Sito_Web():
+class Sito_Web():
     """Classe per verificare se un sito web esiste."""
-
-    def valida(self) -> str:
+    @staticmethod
+    def valida() -> str:
         """Verifica se un sito web inserito dall'utente esiste."""
         while True:
             sito_collegato = input("Inserisci il sito collegato alle credenziali (es. google.com): ")
@@ -88,9 +88,10 @@ class Utente:
         """Restituisce una rappresentazione stringa delle credenziali dell'utente."""
         return f"Email: {self.email}\nPassword: {self.password}\nSito Web: {self.sito_web}"
 
-class Generatore_Password:
+class Password:
     """Classe per generare una password casuale."""
-    def valida(self) -> int:
+    @staticmethod
+    def valida() -> int:
         """Chiede la lunghezza della password e la valida."""
         while True:
             try:
@@ -130,32 +131,33 @@ class Generatore_Password:
 class Credenziali_Utente:
     """Classe principale per gestire la creazione delle credenziali utente."""
     def __init__(self):
-        """Inizializza il programma, chiedendo all'utente email, password e sito web."""
-        self.utente = Utente()  # Oggetto Utente
-        self.generatore_password = Generatore_Password()  # Oggetto GeneratorePassword
-        self.convalida_email = Convalida_Email()  # Oggetto ConvalidaEmail
-        self.convalida_sito_web = Convalida_Sito_Web()  # Oggetto ConvalidaSitoWeb
+        """Crea i vari oggetti presi da le altre Classi."""
+        self.Utente = Utente()  # Oggetto Utente
+        self.Password = Password()  # Oggetto GeneratorePassword
+        self.Email = Email()  # Oggetto ConvalidaEmail
+        self.Sito_web = Sito_Web()  # Oggetto ConvalidaSitoWeb
 
     def crea_credenziali_utente(self):
         """Crea le credenziali dell'utente."""
         # Chiedi l'email dell'utente
-        self.utente.email = self.convalida_email.valida()
+        self.Utente.email = self.Email.valida()
 
         # Chiedi il sito web
-        self.utente.sito_web = self.convalida_sito_web.valida()
+        self.Utente.sito_web = self.Sito_web.valida()
 
         # Chiedi la lunghezza della password e genera la password
-        lunghezza = self.generatore_password.valida()  
-        self.utente.password = self.generatore_password.genera(lunghezza)  
+        lunghezza = self.Password.valida()  
+        self.Utente.password = self.Password.genera(lunghezza) 
+         
     def visualizza_credenziali(self):
         """Visualizza le credenziali finali."""
         print("\n" * 80)
         print(colored(f"Ecco le credenziali!", 'green'))
         print("\n" * 3)
         # Colorazione delle credenziali
-        print(colored(f"Email:    {self.utente.email}", 'yellow'))
-        print(colored(f"Password: {self.utente.password}", 'red'))
-        print(colored(f"Sito Web: {self.utente.sito_web}", 'blue'))
+        print(colored(f"Email:    {self.Utente.email}", 'yellow'))
+        print(colored(f"Password: {self.Utente.password}", 'red'))
+        print(colored(f"Sito Web: {self.Utente.sito_web}", 'blue'))
         print("\n" * 1)
 
 if __name__ == "__main__":
