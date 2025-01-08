@@ -61,13 +61,13 @@ classDiagram
         +visualizza_credenziali()
     }
     
-    %% Creazione degli oggetti all'interno di Credenziali_Utente
+    %% Oggetti presi dalle classi.
     Credenziali_Utente : +Utente
     Credenziali_Utente : +Password
     Credenziali_Utente : +Email
     Credenziali_Utente : +Sito_Web
 
-    %% Relazioni tra le classi e gli oggetti
+    %% Relazioni tra le classi. 
     Credenziali_Utente o-- Utente : prende Utente
     Credenziali_Utente o-- Password : prende Password
     Credenziali_Utente o-- Email : prende Email
