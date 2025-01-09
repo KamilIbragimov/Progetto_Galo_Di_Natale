@@ -26,7 +26,7 @@ Con questo programma, creare credenziali sicure non è mai stato così facile! �
 
 ---
 
-**Nota**: Il programma è pensato per chiunque desideri un modo rapido e sicuro per creare credenziali online, senza bisogno di essere esperti di tecnologia. 🚀
+**Nota**: Il programma è pensato per chiunque desideri un modo rapido e sicuro per creare credenziali online, senza bisogno di essere esperti di tecnologia. 
 
 ---
 
@@ -66,14 +66,12 @@ classDiagram
     Credenziali_Utente : +Password
     Credenziali_Utente : +Email
     Credenziali_Utente : +Sito_Web
-
-    %% Relazioni tra le classi. 
-    Credenziali_Utente o-- Utente : prende Utente
-    Credenziali_Utente o-- Password : prende Password
-    Credenziali_Utente o-- Email : prende Email
-    Credenziali_Utente o-- Sito_Web : prende Sito
-    
-
+ %% Relazioni tra le classi. 
+    Credenziali_Utente *-- Utente : crea e usa
+    Credenziali_Utente *-- Password : crea e usa
+    Credenziali_Utente *-- Email : crea e usa
+    Credenziali_Utente *-- Sito_Web : crea e usa
+   
 ```
 ## Installazione 🔧
 
